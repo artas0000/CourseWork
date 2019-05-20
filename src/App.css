@@ -1,33 +1,233 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
+
+html{
+    height: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+table {
+    font-size: 14px;
+    background: white;
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+th {
+    font-weight: normal;
+    color: #039;
+    border-bottom: 2px solid #113a65;
+    padding: 10px 8px;
 }
 
-.App-link {
-  color: #61dafb;
+td {
+    color: #113a65;
+    padding: 9px 8px;
+    transition: .3s linear;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+tr:hover td {
+    color: #6699ff;
+}
+
+.wrapper {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    padding: 70px 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: rgba(135, 237, 232, 1);
+    background: -moz-linear-gradient(-45deg, rgba(135, 237, 232, 1) 0%, rgba(106, 235, 173, 1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(135, 237, 232, 1)), color-stop(100%, rgba(106, 235, 173, 1)));
+    background: -webkit-linear-gradient(-45deg, rgba(135, 237, 232, 1) 0%, rgba(106, 235, 173, 1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(135, 237, 232, 1) 0%, rgba(106, 235, 173, 1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(135, 237, 232, 1) 0%, rgba(106, 235, 173, 1) 100%);
+    background: linear-gradient(135deg, rgba(135, 237, 232, 1) 0%, rgba(106, 235, 173, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87ede8', endColorstr='#6aebad', GradientType=1);
+}
+
+.main {
+    height: 100%;
+    background: #51a4fd57;
+    box-shadow: 0px 2px 80px -20px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.checkbox {
+    margin: 10px;
+}
+
+.checkbox input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.checkbox__text {
+    position: relative;
+    padding: 0 0 0 60px;
+    cursor: pointer;
+    flex: 100%;
+}
+
+.checkbox__text:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background: #CDD1DA;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, .2);
+    transition: .2s;
+}
+
+.checkbox__text:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    transition: .2s;
+}
+
+.checkbox input:checked+.checkbox__text:before {
+    background: #113a65;
+}
+
+.checkbox input:checked+.checkbox__text:after {
+    left: 26px;
+}
+
+input[type="text"] {
+    background-color: white;
+    border: 0;
+    border: solid 2px #113a65;
+    width: 25%;
+    padding: 4px;
+    color: #113a65;
+    height: 42px;
+    font-weight: lighter;
+    margin: 20px 10px;
+    outline: none;
+}
+
+input[type="button"] {
+    border: 1px solid rgba(0, 0, 0, 0);
+    outline: none;
+    padding: 20px;
+    height: 20px;
+    margin: 5px;
+    margin-left: 3px;
+    background: url(https://www.shareicon.net/data/2016/05/24/770231_arrows_512x512.png) no-repeat 3px 1px;
+    background-size: auto 90%;
+}
+
+[type="date"] {
+    background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+    border: 0;
+    border: solid 2px #113a65;
+    width: 20%;
+    height: 42px;
+    padding: 3px;
+    color: #113a65;
+
+    font-weight: lighter;
+    margin: 20px 10px;
+    outline: none;
+}
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+button {
+    background-color: white;
+    outline: none;
+    color: black;
+    border: 2px solid #113a65;
+    padding: 7px 15px;
+}
+
+button:hover {
+    background-color: #113a65;
+    color: white;
+}
+
+.info{
+    font-family: PT Sans Caption;
+    text-align: center;
+    width: 90%;
+    height: 345px;
+    background-image: url(http://clipart-library.com/img/1152812.png);
+    background-blend-mode: multiply;
+    background-color: rgba(255, 255, 255, 0);
+    background-size: cover;
+}
+
+.info h2{
+    color: #039;
+    font-size: 2.3em;
+    text-shadow: #039 -8px 4px 8px;
+    margin-left: 120px;
+    margin-top: 30px;
+}
+.info p{
+    color: #039;
+    font-size: 1.5em;
+    text-shadow: #039 -3px 3px 10px;
+    margin-left: 353px;
+    margin-top: 5px
+}
+.form{
+    margin-left: 45px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.errors {
+    position: relative;
+}
+
+.error {
+    position: absolute;
+    color: red;
+    top: -65px;
+    left: 10px;
+}
+
+.error1 {
+    position: absolute;
+    color: red;
+    top: -65px;
+    left: 354px;
+}
+
+.error2 {
+    position: absolute;
+    color: red;
+    top: -61px;
+    left: 10px;
 }
